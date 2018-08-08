@@ -449,6 +449,7 @@ section {
   border-bottom-right-radius: 15px;
   box-shadow: 0 2px 10px 3px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease-out;
+  z-index: 9999;
 }
 .modal-container a {
   text-transform: uppercase;
@@ -459,7 +460,7 @@ section {
 .modal-container .up_close_arrow {
   margin-top: 40px;
   cursor: pointer;
-  width: 30px;
+  width: 40px;
 }
 .modal-container .up_close_arrow:hover {
   opacity: 0.8;
