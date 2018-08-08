@@ -45,12 +45,13 @@
     <section style="background: url('img/bg/toplivnue-briketu-iz-opilok.png')">
         <div class="bg-overlay"></div>
         <div class="wrapper">
-            <div class="order wow fadeIn">
+            <form method="POST" id="formx" action="javascript:void(null);" onsubmit="call()" class="order wow fadeIn">
                 <h2 class="order_title">топливный брикет <br> ведущих украинских производителей</h2>
-                <input type="text" class="order_input" placeholder="Имя">
-                <input type="text" class="order_input" placeholder="Телефон">
-                <a href="#" class="order_btn">ЗАКАЗАТЬ</a>
-            </div>
+                <input type="text" id="name" name="name" value="" class="order_input" placeholder="Имя">
+                <input type="text" id="phone" name="phone" value="" class="order_input" placeholder="Телефон">
+                <!-- <a href="#" class="order_btn">ЗАКАЗАТЬ</a> -->
+                <input value="ЗАКАЗАТЬ" type="submit" class="order_btn form">
+            </form>
         </div>
     </section>
     <section>
@@ -210,15 +211,16 @@
     <section style="background: url('img/bg/300162179_w640_h640_briket_iz_luzgi_bioopt.png')">
         <div class="bg-overlay"></div>
         <div class="wrapper">
-            <div class="order wow fadeIn">
+            <form method="POST" id="formx" action="javascript:void(null);" onsubmit="call()" class="order wow fadeIn">
                 <h2 class="order_title">хотите, перезвоним вам?</h2>
                 <div class="input-box">
-                    <input type="text" class="order_input recall" placeholder="Имя">
-                    <input type="text" class="order_input recall" placeholder="Телефон">
+                    <input id="name" name="name" value="" type="text" class="order_input recall" placeholder="Имя">
+                    <input id="phone" name="phone" value="" type="text" class="order_input recall" placeholder="Телефон">
                     <img src="img/card/piramidkashadow2.png" alt="" class="absolute_image">
                 </div>
-                <a href="#" class="order_btn recall">ПЕРЕЗВОНИТЬ</a>
-            </div>
+                <!-- <a href="#" class="order_btn recall">ПЕРЕЗВОНИТЬ</a> -->
+                <input value="ПЕРЕЗВОНИТЬ" type="submit" class="order_btn recall form">
+            </form>
         </div>
     </section>
     <section>
@@ -262,25 +264,27 @@
     <section style="background: url('img/bg/call-mob1.jpg')" class="callback-mobile">
         <div class="bg-overlay"></div>
         <div class="wrapper">
-            <div class="order wow fadeIn">
+            <form method="POST" id="formx" action="javascript:void(null);" onsubmit="call()" class="order wow fadeIn">
                 <h2 class="order_title">Свяжитесь с нами</h2>
-                <input type="text" class="order_input" placeholder="Имя">
-                <input type="text" class="order_input" placeholder="Телефон">
-                <a href="#" class="order_btn">ПЕРЕЗВОНИТЕ</a>
-            </div>
+                <input type="text" id="name" name="name" value="" class="order_input" placeholder="Имя">
+                <input type="text" id="phone" name="phone" value="" class="order_input" placeholder="Телефон">
+                <!-- <a href="#" class="order_btn">ПЕРЕЗВОНИТЕ</a> -->
+                <input value="ПЕРЕЗВОНИТЕ" type="submit" class="order_btn form">
+            </form>
         </div>
     </section>
     <section>
         <div class="map wow fadeIn" id="map">
         </div>
-        <div class="callback wow fadeIn">
+        <form method="POST" id="formx" action="javascript:void(null);" onsubmit="call()" class="callback wow fadeIn">
             <h3>свяжитесь с нами </h3>
             <h4>для заказа и консультаций</h4>
-            <input type="text" placeholder="Имя">
-            <input type="text" placeholder="Телефон">
-            <a href="#" class="btn">перезвоните мне</a>
+            <input id="name" name="name" value="" type="text" placeholder="Имя">
+            <input id="phone" name="phone" value="" type="text" placeholder="Телефон">
+            <!-- <a href="#" class="btn">перезвоните мне</a> -->
+            <input value="перезвоните мне" type="submit" class="btn" style="cursor: pointer;">
             <p><img src="img/icons/locked-padlock.png" alt="">Ваши данные под защитой</p>
-        </div>
+        </form>
     </section>
     <footer>
         <div class="wrapper">
@@ -322,14 +326,21 @@
     <section class="modal-container">
         <!-- <div class="bg-overlay"></div> -->
         <div class="wrapper">
-            <div class="order">
-                <input type="text" class="order_input" placeholder="Имя">
-                <input type="text" class="order_input" placeholder="Телефон">
-                <a href="#" class="order_btn">перезвонить</a>
+            <form method="POST" id="formx" action="javascript:void(null);" onsubmit="call()" class="order">
+                <input type="text" id="name" name="name" value="" class="order_input" placeholder="Имя">
+                <input type="text" id="phone" name="phone" value="" class="order_input" placeholder="Телефон">
+                <!-- <a href="#" class="order_btn">перезвонить</a> -->
+                <input value="перезвонить" type="submit" class="order_btn form">
                 <img class="up_close_arrow" src="img/icons/up-arrow.svg" alt="">
-            </div>
+            </form>
         </div>
     </section>
+    <div class="error">
+        <p>Error</p>
+    </div>
+    <div class="success">
+        <p>Success</p>
+    </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
@@ -352,6 +363,34 @@
         var windowWidth = $(window).width();
         if (windowWidth > 900){
             new WOW().init();
+        }
+    </script>
+    <script type="text/javascript" language="javascript">
+        function call() {
+            var msg   = $('#formx').serialize();
+            $.ajax({
+                type: 'POST',
+                url: 'send.php',
+                data: msg,
+            success: function(data) {
+                $('.success').addClass('active');
+                function func1() {
+                    $('.success').removeClass('active');
+                }
+
+                setTimeout(func1, 8000);
+                // Тут можно скрывать форму и показывать надпись “спасибо”
+            },
+            error:  function(xhr, str){
+                $('.error').addClass('active');
+                function func2() {
+                    $('.error').removeClass('active');
+                }
+
+                setTimeout(func2, 8000);
+                // Если форма не отправлена (error срабатывает только при ошибки отпарвки, а не пустых полей!)
+            }
+            });
         }
     </script>
     <script src="js/main.js"></script>
