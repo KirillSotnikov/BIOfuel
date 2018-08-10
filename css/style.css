@@ -668,6 +668,7 @@ section.main-title .main_box .main_btn:hover {
   visibility: hidden;
   transform: scale(0.8);
   transition: all 0.8s ease-out;
+  min-height: 440px;
 }
 .tabulation_content.active {
   opacity: 1;
