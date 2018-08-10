@@ -128,6 +128,13 @@ section{
             font-size: 90px;
         }
     }
+    &_desc-title{
+        font-size: 18px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        font-family: @reg;
+        text-align: center;
+    }
     &_input{
         outline: none;
         border: none;
@@ -150,6 +157,10 @@ section{
         width: 200px; 
         top: 0;
         right: -90px;
+        &.custom{
+            top: -30px;
+            right: -110px;
+        }
     }
     &_btn{
         margin-top: 10px;
@@ -860,6 +871,9 @@ section.main-title{
 @media screen and (max-width: 480px){
     .order_title{
         font-size: 20px;
+    }
+    .order_desc-title{
+        font-size: 16px;
     }
     .order-now_title{
         font-size: 24px;

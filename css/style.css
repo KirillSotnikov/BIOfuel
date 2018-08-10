@@ -125,6 +125,13 @@ section {
   color: #fff;
   font-size: 90px;
 }
+.order_desc-title {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-family: "OpenSans-Regular";
+  text-align: center;
+}
 .order_input {
   outline: none;
   border: none;
@@ -147,6 +154,10 @@ section {
   width: 200px;
   top: 0;
   right: -90px;
+}
+.order .absolute_image.custom {
+  top: -30px;
+  right: -110px;
 }
 .order_btn {
   margin-top: 10px;
@@ -831,6 +842,9 @@ section.main-title .main_box .main_btn:hover {
 @media screen and (max-width: 480px) {
   .order_title {
     font-size: 20px;
+  }
+  .order_desc-title {
+    font-size: 16px;
   }
   .order-now_title {
     font-size: 24px;
